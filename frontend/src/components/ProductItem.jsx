@@ -3,10 +3,10 @@ import { ShopContext } from "../context/ShopContext"
 import { Link } from "react-router-dom"
 
 
-const ProductItem = ({ _id, name, image, price }) => {
+const ProductItem = ({ _id, name, image, price, onClick }) => {
 	const {currency} = useContext(ShopContext)
   return (
-	<Link className="cursor-pointer" to={`/product/${_id}`}>
+	<Link className="cursor-pointer" to={`/product/${_id}`}  onClick={onClick}>
 		  <div className="overflow-hidden">
 			  <img className="hover:scale-110 transition ease-in-out" src={image?.[0]} alt="" />
 		  </div>
