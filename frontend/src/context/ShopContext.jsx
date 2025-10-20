@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 import { products } from "../assets/frontend_assets/assets";
 import { toast } from "react-toastify";
 
@@ -47,6 +47,15 @@ const addToCart = async (itemId, size) => {
 		return totalCount;
 	}
 
+	const updateQuantity = async (itemId, size, quantity) => {
+		let cartData = structuredClone(cartItems)
+		if(!cartData[itemId]) {
+			cartData[itemId] = {}
+		}
+		cartData[itemId][size] = quantity;
+		setCartItems(cartData)
+	}
+
   const value = {
     currency,
     delivery_fee,
@@ -58,6 +67,7 @@ const addToCart = async (itemId, size) => {
     cartItems,
     addToCart,
 	getCartCount,
+	updateQuantity,
   };
 
   return (

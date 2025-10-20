@@ -59,9 +59,6 @@ const Collection = () => {
         break;
     }
   };
-  useEffect(() => {
-  console.log("Фильтрованные товары:", filterProducts);
-}, [filterProducts]);
 
   useEffect(() => {
     applyFilter();
