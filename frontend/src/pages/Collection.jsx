@@ -12,6 +12,8 @@ const Collection = () => {
   const [subCategory, setSubCategory] = useState([]);
   const [sortType, setSortType] = useState('relevant');
 
+  
+
   const toggleCategory = (e) => {
     if (category.includes(e.target.value)) {
       setCategory((prev) => prev.filter((item) => item !== e.target.value));
@@ -57,6 +59,9 @@ const Collection = () => {
         break;
     }
   };
+  useEffect(() => {
+  console.log("Фильтрованные товары:", filterProducts);
+}, [filterProducts]);
 
   useEffect(() => {
     applyFilter();
